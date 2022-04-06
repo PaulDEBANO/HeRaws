@@ -5,7 +5,8 @@ import {
   Bars,
   NavMenu,
   NavBtn,
-  NavBtnLink
+  NavBtnLink,
+  BlackLine,
 } from './NavbarElements';
 
 const Navbar = ({ toggle }) => {
@@ -13,7 +14,7 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav>
         <NavLink to='/'>
-          <img src={'../../assets/heraws.svg'}  alt='Heraws'/>
+          <img src={'../../assets/heraws.png'}  alt='Heraws'/>
         </NavLink>
         <Bars onClick={toggle} />
         <NavMenu>
@@ -33,6 +34,7 @@ const Navbar = ({ toggle }) => {
           <NavBtnLink to='/signin'>Sign In</NavBtnLink>
         </NavBtn>
       </Nav>
+      <BlackLine />
     </>
   );
 };

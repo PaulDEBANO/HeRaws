@@ -27,7 +27,7 @@ export const NavLink = styled(Link)`
   }
   
   &.active {
-    color: #54BAB9;
+    color: #096F7D;
   }
 `;
 
@@ -79,7 +79,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #54BAB9;
+  background: #096F7D;
   padding: 10px 22px;
   color: #fff;
   outline: none;
@@ -96,4 +96,9 @@ export const NavBtnLink = styled(Link)`
     background: #000;
     color: #fff;
   }
+`;
+
+export const BlackLine = styled.div`
+    border: 1px solid #CACACA;
+    transform: rotate(0deg);
 `;

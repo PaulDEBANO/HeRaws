@@ -1,18 +1,10 @@
 import React from 'react';
+import ContentAbout from "../components/ContentAbout";
 
 
 const About = () => {
     return (
-        <div
-            style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '90vh'
-            }}
-        >
-            <h1>About</h1>
-        </div>
+        <ContentAbout />
     );
 };
 

@@ -11,7 +11,7 @@ const Home = () => {
                 height: '90vh'
             }}
         >
-            <h1>Home</h1>
+            <h1 Style='font-size: 48px;'>Home</h1>
         </div>
     );
 };

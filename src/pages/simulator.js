@@ -48,6 +48,7 @@ const Simulator = () => {
                     color: 'success.main',
                 }}
             />
+            <h1 Style='font-size: 48px;'>Simulator</h1>
         </div>
     );
 };

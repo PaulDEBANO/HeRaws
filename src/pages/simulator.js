@@ -10,7 +10,7 @@ const Simulator = () => {
                 height: '90vh'
             }}
         >
-            <h1>Simulator</h1>
+            <h1 Style='font-size: 48px;'>Simulator</h1>
         </div>
     );
 };

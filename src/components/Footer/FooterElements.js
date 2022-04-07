@@ -115,5 +115,5 @@ export const SocialIconLink = styled.a`
 export const StyleBarFooter = styled.div`
     border: 5px solid #E9DAC1;
     transform: rotate(0deg);
-    margin-top:700px;
+    margin-top:20vh;
 `;

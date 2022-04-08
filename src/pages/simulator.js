@@ -63,7 +63,7 @@ const Simulator = () => {
             //---Selector of elements---
             }
             <div className="elt-selector-grid">
-                <h2 className="section-title">Please select the elements from yout battery</h2>
+                <h2 className="section-title">Please select the elements from your battery</h2>
                 <ThemeProvider theme={theme_elt_selector}>
                     <Button variant="contained" color="primary">Ni</Button>
                     <Button variant="contained" color="primary">Co</Button>
@@ -97,7 +97,7 @@ const Simulator = () => {
                     id="outlined-start-adornment"
                     sx={{m:2, width: '25ch'}}
                     InputProps={{
-                        endAdornment: <InputAdornment position="mAh/g">kg</InputAdornment>,
+                        endAdornment: <InputAdornment position="mAh/g">mAh/g</InputAdornment>,
                     }}
                 />
             </div>

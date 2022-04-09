@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import {Component} from "react";
+import { Component } from "react";
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slider from '@mui/material/Slider';
@@ -25,7 +25,7 @@ const theme_button = createTheme({
             contrastText: '#000',
         },
     },
-  });
+});
 
 const theme_elt_selector = createTheme({
     palette: {
@@ -40,27 +40,27 @@ const theme_elt_selector = createTheme({
 })
 
 const Simulator = () => {
-    return (        
+    return (
         <div
             className="page-content-grid"
-            /*
-            style={{
-                display: 'grid',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '90vh'
-            }}
-            */
+        /*
+        style={{
+            display: 'grid',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '90vh'
+        }}
+        */
         >
             {
-            //---Title of the page---
+                //---Title of the page---
             }
             <div className="page-title">
                 <h1 Style='font-size: 48px;'>Simulator</h1>
             </div>
-            
+
             {
-            //---Selector of elements---
+                //---Selector of elements---
             }
             <div className="elt-selector-grid">
                 <h2 className="section-title">Please select the elements from yout battery</h2>
@@ -81,30 +81,47 @@ const Simulator = () => {
             </div>
 
             {
-            //---Inputs for caracteristics---
+                //---Inputs for caracteristics---
             }
             <div className="inputs-caracteristics">
                 {
-                // Dynamics inputs for concentration of elements
-                //FAIRE UNE FONCTION POUR RECUPERER LES ELT ET AFFICHER DYNAMIQUEMENT LES INPUT
+                    // Dynamics inputs for concentration of elements
+                    //FAIRE UNE FONCTION POUR RECUPERER LES ELT ET AFFICHER DYNAMIQUEMENT LES INPUT
                 }
 
                 {
-                // Battery, Tension and Electric cars
+                    // Battery and Tension 
                 }
                 <TextField
                     label="Battery performance"
                     id="outlined-start-adornment"
-                    sx={{m:2, width: '25ch'}}
+                    sx={{ m: 2, width: '25ch' }}
                     InputProps={{
-                        endAdornment: <InputAdornment position="mAh/g">kg</InputAdornment>,
+                        endAdornment: <InputAdornment position="mAh/g">mAh/G</InputAdornment>,
                     }}
                 />
+                <TextField
+                    label="Tension"
+                    id="outlined-start-adornment"
+                    sx={{ m: 2, width: '25ch' }}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="V">mAh/G</InputAdornment>,
+                    }}
+                />
+                {
+                    // Electric cars
+                }
+
+
             </div>
 
             {
-            //---Graphics---
+                //---Graphics---
             }
+            <div className='graphics'>
+                { }
+            </div>
+
 
         </div>
     );

@@ -7,15 +7,6 @@
     padding: 0;
 }
 
-.MuiSlider-thumb {
-    color: deeppink;
-}
-
-.Button:disabled {
-    color: deepskyblue;
-    background-color: aqua;
-    font-size: larger;
-}
 
 /*
 *
@@ -44,18 +35,7 @@
 * All the page
 *
 */
-.page-content-grid {
-    display : grid;
-    grid-template-columns: repeat(2, 30%);
-    grid-template-rows: repeat(3, auto);
-    padding : 3rem;
-}
 
-.page-title {
-    grid-column: span 3;
-    grid-row: 1;
-    text-align: center;
-}
 
 /*
 *
@@ -63,25 +43,8 @@
 * Selection of elements
 *
 */
-.elt-selector-grid {
-    /*Placement on page-content-grid*/
-    grid-column : 1;
-    grid-row: 2;
 
-    /*Caracteristics for the elements inside elt-selector-grid */
-    display : grid;
-    margin-top: 2rem;
-    grid-template-columns : repeat(4, auto);
-    grid-template-rows: minmax(7rem, auto) repeats(4, auto);
-    column-gap: 0.5rem;
-    row-gap: 0.5rem;
-}
 
-.section-title {
-    grid-column: span 4;
-    grid-row: 1;
-    text-align: center;
-}
 
 /*
 *
@@ -89,11 +52,7 @@
 * Inputs for caracteristics
 *
 */
-.inputs-caracteristics {
-    /*Placement on page-content-grid*/
-    grid-column : 1;
-    grid-row: 3;
-}
+
 
 /*
 * 
@@ -101,11 +60,3 @@
 * Space for graphics
 * 
 */
-.graphics {
-    background-color: grey;
-    border-radius: 1rem;
-
-    /*Placement on page-content-grid*/
-    grid-column : 3;
-    grid-row: span 2;
-}

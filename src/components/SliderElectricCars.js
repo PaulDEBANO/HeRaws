@@ -8,6 +8,8 @@ import MuiInput from '@mui/material/Input';
 import VolumeUp from '@mui/icons-material/VolumeUp';
 import Icon from '@mui/material/Icon'
 import ElectricCarIcon from '@mui/icons-material/ElectricCar';
+import {Tooltip} from "@mui/material";
+
 
 const Input = styled(MuiInput)`
   width: 42px;
@@ -42,11 +44,13 @@ export default function InputSlider() {
           <ElectricCarIcon />
         </Grid>
         <Grid item xs>
-          <Slider
-            value={typeof value === 'number' ? value : 0}
-            onChange={handleSliderChange}
-            aria-labelledby="input-slider"
-          />
+            <Tooltip title="test" placement="bottom" arrow>
+                <Slider
+                    value={typeof value === 'number' ? value : 0}
+                    onChange={handleSliderChange}
+                    aria-labelledby="input-slider"
+                />
+            </Tooltip>
         </Grid>
         <Grid item>
           <Input

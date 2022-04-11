@@ -12,6 +12,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import SliderElectricCars from '../components/SliderElectricCars';
+import {Tooltip} from "@mui/material";
 
 const theme_elt_selector = createTheme({
     palette: {
@@ -132,26 +133,30 @@ function BatteryElements() {
                     // Battery and Tension 
                 }
                 <label className="text-left row-start-1">Fill the battery performance and the tension :</label>
-                <TextField
-                    className="row-start-2"
-                    type="number"
-                    step="0.1"
-                    label="Battery performance"
-                    id="outlined-start-adornment"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">mAh/g</InputAdornment>,
-                    }}
-                />
-                <TextField
-                    className="row-start-3"
-                    type="number"
-                    step="0.1"
-                    label="Tension"
-                    id="outlined-start-adornment"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">V</InputAdornment>,
-                    }}
-                />
+                <Tooltip title="test" placement="right-start" arrow>
+                    <TextField
+                        className="row-start-2"
+                        type="number"
+                        step="0.1"
+                        label="Battery performance"
+                        id="outlined-start-adornment"
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">mAh/g</InputAdornment>,
+                        }}
+                    />
+                </Tooltip>
+                <Tooltip title="test" placement="right-start" arrow>
+                    <TextField
+                        className="row-start-3"
+                        type="number"
+                        step="0.1"
+                        label="Tension"
+                        id="outlined-start-adornment"
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">V</InputAdornment>,
+                        }}
+                    />
+                </Tooltip>
                 {
                     // Electric cars
                 }

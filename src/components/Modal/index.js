@@ -1,32 +1,53 @@
-import React from 'react';
-import {
-    ModalWrapper,
-    ModalHeader,
-    CloseModalBtn,
-    ModalContent,
-    ModalBody,
-    ModalFooter,
-    BtnCancel,
-} from "./ModalElements";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import { styled } from '@mui/material/styles';
 
-const Modal = ({ show, ModalToggle }) => {
-    return (
-        <ModalWrapper show={show} onClick={ModalToggle}>
-            <ModalHeader>
-                <p>Welcome</p>
-                <CloseModalBtn>X</CloseModalBtn>
-            </ModalHeader>
-            <ModalContent>
-                <ModalBody>
-                    <h4>Modal</h4>
-                    <p>Lorem ipsum</p>
-                </ModalBody>
-                <ModalFooter>
-                    <BtnCancel>Close</BtnCancel>
-                </ModalFooter>
-            </ModalContent>
-        </ModalWrapper>
-    );
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
 };
 
-export default Modal;
+const ColorButton = styled(Button)(({ theme }) => ({
+    color: '#fff',
+    backgroundColor: '#096F7D',
+    '&:hover': {
+        backgroundColor: '#000',
+    },
+}));
+
+export default function BasicModal() {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    return (
+        <div>
+            <ColorButton variant="contained" size="large" onClick={handleOpen}>Sign In</ColorButton>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="Sign In"
+                aria-describedby="Sign In"
+            >
+                <Box sx={style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Text in a modal
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    </Typography>
+                </Box>
+            </Modal>
+        </div>
+    );
+}

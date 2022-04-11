@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import styled from "styled-components";
-import image_simulator from '../assets/simulator.png'
+import image_simulator from '../assets/simulator.png';
 
 
 const BtnLink = styled(Link)`

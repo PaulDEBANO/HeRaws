@@ -14,6 +14,7 @@ import Checkbox from '@mui/material/Checkbox';
 import SliderElectricCars from '../components/SliderElectricCars';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import {Tooltip} from "@mui/material";
 
 //Color palette for the elements on the left side
 const theme_elt_selector = createTheme({
@@ -113,26 +114,30 @@ function BatteryElements() {
                     //Inputs for fill in the battery performance and the tension
                 }
                 <label className="text-left row-start-1">Fill the battery performance and the tension :</label>
-                <TextField
-                    className="row-start-2"
-                    type="number"
-                    step="0.1"
-                    label="Battery performance"
-                    id="outlined-start-adornment"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">mAh/g</InputAdornment>,
-                    }}
-                />
-                <TextField
-                    className="row-start-3"
-                    type="number"
-                    step="0.1"
-                    label="Tension"
-                    id="outlined-start-adornment"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">V</InputAdornment>,
-                    }}
-                />
+                <Tooltip title="test" placement="right-start" arrow>
+                    <TextField
+                        className="row-start-2"
+                        type="number"
+                        step="0.1"
+                        label="Battery performance"
+                        id="outlined-start-adornment"
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">mAh/g</InputAdornment>,
+                        }}
+                    />
+                </Tooltip>
+                <Tooltip title="test" placement="right-start" arrow>
+                    <TextField
+                        className="row-start-3"
+                        type="number"
+                        step="0.1"
+                        label="Tension"
+                        id="outlined-start-adornment"
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">V</InputAdornment>,
+                        }}
+                    />
+                </Tooltip>
                 {
                     // Electric cars
                     //Slider for the pourcentage of electric cars

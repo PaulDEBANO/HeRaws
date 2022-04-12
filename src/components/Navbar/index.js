@@ -5,9 +5,9 @@ import {
   Bars,
   NavMenu,
   NavBtn,
-  NavBtnLink,
   BlackLine,
 } from './NavbarElements';
+import BasicModal from "../Modal";
 
 const Navbar = ({ toggle }) => {
   return (
@@ -33,7 +33,7 @@ const Navbar = ({ toggle }) => {
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+          <BasicModal></BasicModal>
         </NavBtn>
       </Nav>
       <BlackLine />

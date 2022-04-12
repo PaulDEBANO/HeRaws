@@ -1,18 +1,13 @@
 import React from 'react';
 
-import { Component } from "react";
-import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Slider from '@mui/material/Slider';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import Input from '@mui/material/Input';
-import { List } from '@mui/material';
-import { list } from 'postcss';
-import Checkbox from '@mui/material/Checkbox';
+//Creation of the color palette or customize the MUI components
+import { createTheme, ThemeProvider } from "@mui/material/styles"; 
 
-import SliderElectricCars from '../components/SliderElectricCars';
+//For creating contextual help
+import { Tooltip } from "@mui/material";
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+
+//Calling the components for all the left side elements
 import CompositionOfElements from '../components/CompositionOfElements';
 
 
@@ -34,19 +29,7 @@ const theme_button = createTheme({
     },
 });
 
-const theme_elt_selector = createTheme({
-    palette: {
-        primary: {
-            light: '#FFC900',
-            main: '#086E7D',
-            dark: '#1A5F7A',
-            contrastText: '#fff',
-        }
-    }
-
-});
-
-
+//Structure of the simulator page
 const Simulator = () => {
     return (
         //Structure of the page : grid with 2 columns

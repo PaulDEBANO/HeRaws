@@ -3,18 +3,13 @@ Component for creating the elements buttons and their inputs for their compositi
 */
 
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import SliderElectricCars from '../components/SliderElectricCars';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import {Tooltip} from "@mui/material";
+import { Tooltip } from "@mui/material";
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 //Color palette for the elements on the left side
 const theme_elt_selector = createTheme({
@@ -59,7 +54,21 @@ function BatteryElements() {
     //HTML elements, all elements are contained in a form
     return (
         <form className="p-2" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
+            {
+                //Aide contextuelle avec icone
+            }
+            <ThemeProvider theme={theme_elt_selector}>
+                <Tooltip
+                    className="m-1"
+                    title="You can find this information on the battery label."
+                    placement="right-start"
+                    arrow>
+                    <HelpOutlineIcon color="primary" />
+                </Tooltip>
+            </ThemeProvider>
+
             <label className="text-left col-span-1">Please select the elements from your battery : </label>
+
             <div >
                 <div className="grid grid-cols-3 m-2 gap-1" >
                     <ThemeProvider theme={theme_elt_selector}>
@@ -81,6 +90,18 @@ function BatteryElements() {
                     //Creation of the input for a selected elements
                 }
                 <div className='my-5'>
+                    {
+                        //Aide contextuelle avec icone
+                    }
+                    <ThemeProvider theme={theme_elt_selector}>
+                        <Tooltip
+                            className="m-1"
+                            title="For a good simulation, we need to know the concentration of each elements."
+                            placement="right-start"
+                            arrow>
+                            <HelpOutlineIcon color="primary" />
+                        </Tooltip>
+                    </ThemeProvider>
                     <label className='text-left col-span-1'>Fill in the precise composition of your battery : </label>
                     <ThemeProvider theme={theme_elt_selector}>
                         {
@@ -113,8 +134,8 @@ function BatteryElements() {
                     // Battery perf. and Tension 
                     //Inputs for fill in the battery performance and the tension
                 }
-                <label className="text-left row-start-1">Fill the battery performance and the tension :</label>
-                <Tooltip title="test" placement="right-start" arrow>
+                <label >Fill the battery performance and the tension :</label>
+                <Tooltip title="Please enter your battery performance" placement="right-start" arrow>
                     <TextField
                         className="row-start-2"
                         type="number"
@@ -126,7 +147,7 @@ function BatteryElements() {
                         }}
                     />
                 </Tooltip>
-                <Tooltip title="test" placement="right-start" arrow>
+                <Tooltip title="Please enter the tension of your battery" placement="right-start" arrow>
                     <TextField
                         className="row-start-3"
                         type="number"

@@ -5,8 +5,6 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 import MuiInput from '@mui/material/Input';
-import VolumeUp from '@mui/icons-material/VolumeUp';
-import Icon from '@mui/material/Icon'
 import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 import {Tooltip} from "@mui/material";
 
@@ -44,7 +42,7 @@ export default function InputSlider() {
           <ElectricCarIcon />
         </Grid>
         <Grid item xs>
-            <Tooltip title="test" placement="bottom" arrow>
+            <Tooltip title="%" placement="bottom" arrow>
                 <Slider
                     value={typeof value === 'number' ? value : 0}
                     onChange={handleSliderChange}

@@ -12,7 +12,10 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import SliderElectricCars from '../components/SliderElectricCars';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
+//Color palette for the elements on the left side
 const theme_elt_selector = createTheme({
     palette: {
         primary: {
@@ -37,15 +40,11 @@ const theme_elt_selector = createTheme({
 let allElements = ["Ni", "Co", "Al", "Mn", "Fe", "P", "Li", "S", "F", "V", "Ti", "O"]
 //Global variable : empty array for storage of all the element of the battery
 let listOfElement = [];
-//Global variable : empty array for storage of inputs for representation of the element of the battery
-let listInputsOfElement = [];
 
-
+//Function for all the elements of the left side of the simulator
 function BatteryElements() {
-    //const [elt, setElt] = useState("Coucou,"); //Variable : store all the selected elements 
-
-    //CODE LOUIS
-    let elems = allElements; //liste de toutes les checkbox
+    //Code for handle the check of th checkbox for selesting the elements of the battery
+    let elems = allElements; //all the checkboxex
     let [checked, setChecked] = useState([]);
     const handleCheck = (el) => {
         if (el.target.checked) {
@@ -56,80 +55,62 @@ function BatteryElements() {
         console.log(checked);
     };
 
+    //HTML elements, all elements are contained in a form
     return (
-        <form>
+        <form className="p-2" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
             <label className="text-left col-span-1">Please select the elements from your battery : </label>
-            <div>
-                <ThemeProvider theme={theme_elt_selector}>
-                    {/* AVANT TEST PROGRAMME LOUIS
-                    <FormGroup className="grid grid-cols-4 grid-rows-3 gap-1 ">
-                        <TextField
-                            label="Concentration of Ni"
-                            type="number"
-                            step={0.1}
-                            min={0}
-                            id="outlined-start-adornment"
-                            InputProps={{
-                                startAdornment: <InputAdornment position="start">Ni</InputAdornment>,
-                            }}
-                        />
-                        <FormControlLabel className="col-start-1 row-start-1" control={<Checkbox />} label="Ni" value="Ni" onClick={e => handleCheck()} />
-                        <FormControlLabel className="col-start-2 row-start-1" control={<Checkbox />} label="Co" value="Co" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-3 row-start-1" control={<Checkbox />} label="Al" value="Al" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-4 row-start-1" control={<Checkbox />} label="Mn" value="Mn" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-1 row-start-2" control={<Checkbox />} label="Fe" value="Fe" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-2 row-start-2" control={<Checkbox />} label="P" value="P" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-3 row-start-2" control={<Checkbox />} label="Li" value="Li" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-4 row-start-2" control={<Checkbox />} label="S" value="S" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-1 row-start-3" control={<Checkbox />} label="F" value="F" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-2 row-start-3" control={<Checkbox />} label="V" value="V" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-3 row-start-3" control={<Checkbox />} label="Ti" value="Ti" onClick={e => handleChange(e.target.value)} />
-                        <FormControlLabel className="col-start-4 row-start-3" control={<Checkbox />} label="O" value="O" onClick={e => handleChange(e.target.value)} />
-                    </FormGroup>
-                    */
-                    }
+            <div >
+                <div className="grid grid-cols-3 m-2 gap-1" >
+                    <ThemeProvider theme={theme_elt_selector}>
+                        { //Creation of all the checkbox for selecting the elements of the battery
+                            elems.map((el) => {
+                                return (
+                                    <div key={el}>
+                                        <input type="checkbox" className="checkboxElt" name={el} id={el} onChange={handleCheck} />
+                                        <label htmlFor={el}>{el}</label>
+                                    </div>
+                                );
+                            })
+                        }
+                    </ThemeProvider>
+                </div>
 
-                    {
-                        elems.map((el) => {
-                            return (
-                                <div key={el}>
-                                    <input type="checkbox" name={el} id={el} onChange={handleCheck} />
-                                    <label htmlFor={el}>{el}</label>
+                {
+                    // Inputs for concentration of elements
+                    //Creation of the input for a selected elements
+                }
+                <div className='my-5'>
+                    <label className='text-left col-span-1'>Fill in the precise composition of your battery : </label>
+                    <ThemeProvider theme={theme_elt_selector}>
+                        {
+                            [...checked].map((el) => (
+                                <div className='my-3'>
+                                    <TextField
+                                        type="number"
+                                        step="1"
+                                        max="100"
+                                        min="0"
+                                        label={el}
+                                        id="outlined-start-adornment"
+                                        InputProps={{
+                                            endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                                        }}
+                                    />
                                 </div>
-                            );
-                        })
-                    }
-
-                    {
-                        // Inputs for concentration of elements
-                    }
-                    <label className='text-left col-span-1'>Caracteristics of your battery</label>
-
-                    {
-                        [...checked].map((el) => (
-                            <div style={{ display: "flex" }}>
-                                <TextField
-                                    type="number"
-                                    step="0.1"
-                                    label={el}
-                                    id="outlined-start-adornment"
-                                    InputProps={{
-                                        endAdornment: <InputAdornment position="end">unit</InputAdornment>,
-                                    }}
-                                />
-                            </div>
-                        ))
-                    }
-                </ThemeProvider>
+                            ))
+                        }
+                    </ThemeProvider>
+                </div>
             </div>
 
             {
                 //---Inputs for caracteristics---
                 // 5 rows : title, battery perf., tension, slider for cars and button
             }
-            <div className="col-span-1 row-start-3 grid grid-rows-5 gap-3">
+            <div className="col-span-1 row-start-3 grid grid-rows-5">
                 {
-                    // Battery and Tension 
+                    // Battery perf. and Tension 
+                    //Inputs for fill in the battery performance and the tension
                 }
                 <label className="text-left row-start-1">Fill the battery performance and the tension :</label>
                 <TextField
@@ -154,6 +135,7 @@ function BatteryElements() {
                 />
                 {
                     // Electric cars
+                    //Slider for the pourcentage of electric cars
                 }
                 <ThemeProvider theme={theme_elt_selector}>
                     <SliderElectricCars />
@@ -168,43 +150,6 @@ function BatteryElements() {
             </div>
         </form >
     );
-
-    //Function for modified the list of all selected element after the click on one element
-    //Function for add or delete an element elt in the list listOfElement
-    //param : a string contain the name of the element (ex : "Ni")
-    function handleChange(param) {
-        //If the element is already in the list, we delete it        
-        if (listOfElement.includes(param)) {
-            listOfElement = listOfElement.filter((item) => item !== param);
-            console.log("delete : " + param); //Test to print in console
-        }
-        //If it's not in the list, we add it
-        else {
-            listOfElement.push(param);
-            console.log("push : " + param); //Test to print in console
-        }
-    }
-
-    //Function for creating inputs for the elements of the list
-    function createInputsForElements() {
-        console.log("createInput function")
-        listInputsOfElement = listOfElement.map((elt) => {
-            return (
-                <div>
-                    <p>Element : {elt}</p>
-                    <TextField
-                        type="number"
-                        label={elt}
-                        id="outlined-start-adornment"
-                        InputProps={{
-                            startAdornment: <InputAdornment position="start">Concentration :</InputAdornment>,
-                        }}
-                    />
-                </div>
-            )
-        })
-        console.log("input crée")
-    }
 
 }
 

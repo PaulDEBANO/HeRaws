@@ -61,6 +61,10 @@ const Simulator = () => {
                 <h1 className='text-5xl'>Simulator</h1>
             </div>
 
+            {
+                //---All the left side elements---
+                //The selection of the elements, inputs for their concentration, performance, tension and % of electric cars
+            }
             <div className="w-2/5 col-span-1 content-start gap-5">
                 <CompositionOfElements />
             </div>
@@ -68,22 +72,22 @@ const Simulator = () => {
             {
                 //---Graphics---
             }
-            <div className="gap-1 col-start-2 row-start-2 row-span-2 col-span-1 grid grid-rows-2 grid-cols-2">
+            <div className="gap-3 col-start-2 row-start-2 row-span-2 col-span-1 grid grid-rows-2 grid-cols-2">
                 {
                     //World production
                 }
-                <div className="row-start-1 col-span-2 bg-emerald-300">
+                <div className="row-start-1 col-span-2 p-2" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
                     <h3 className="text-left">World Production</h3>
                 </div>
 
                 {
                     //Geopolitical risks & CO2 footprint
                 }
-                <div className="row-start-2 col-start-1 bg-emerald-400">
+                <div className="row-start-2 col-start-1 p-2" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
                     <h3 className="text-left">Geopolitical Risks</h3>
 
                 </div>
-                <div className="row-start-2 col-start-2 bg-emerald-500">
+                <div className="row-start-2 col-start-2 p-2" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
                     <h3 className="text-left">CO2 Footprint</h3>
 
                 </div>

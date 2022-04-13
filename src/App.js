@@ -9,7 +9,7 @@ import Home from './pages';
 import About from './pages/about';
 import Simulator from './pages/simulator';
 import SignIn from './pages/signin';
-
+import PageNotFound404 from './pages/PageNotFound404';
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +33,7 @@ function App() {
                 <Route path='/simulator' element={<Simulator/>} />
                 <Route path='/about' element={<About/>} />
                 <Route path='/signin' exact element={<SignIn/>} />
+                <Route path="*" element={<PageNotFound404/>} />
             </Routes>
             <Footer />
         </Router>

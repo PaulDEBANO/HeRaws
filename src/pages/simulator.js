@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Creation of the color palette or customize the MUI components
-import { createTheme, ThemeProvider } from "@mui/material/styles"; 
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 //For creating contextual help
 import { Tooltip } from "@mui/material";
@@ -11,7 +11,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import CompositionOfElements from '../components/CompositionOfElements';
 
 
-//Palete color 
+//Palete color
 const theme_button = createTheme({
     palette: {
         primary: {
@@ -48,14 +48,14 @@ const Simulator = () => {
                 //---All the left side elements---
                 //The selection of the elements, inputs for their concentration, performance, tension and % of electric cars
             }
-            <div className="w-2/5 col-span-1 content-start gap-5">
+            <div className="w-3/5 col-span-1 content-start gap-5 mt-10">
                 <CompositionOfElements />
             </div>
 
             {
                 //---Graphics---
             }
-            <div className="gap-3 col-start-2 row-start-2 row-span-2 col-span-1 grid grid-rows-2 grid-cols-2">
+            <div className="gap-3 col-start-2 row-start-2 row-span-2 col-span-1 grid grid-rows-2 grid-cols-2 mt-10">
                 {
                     //World production
                 }

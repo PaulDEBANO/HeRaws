@@ -9,6 +9,7 @@ import {
     SideBtnWrap,
     SidebarRoute
 } from './SidebarElements';
+import BasicModal from "../Modal";
 
 const Sidebar = ({isOpen, toggle}) => {
     return (
@@ -23,7 +24,7 @@ const Sidebar = ({isOpen, toggle}) => {
                     <SidebarLink to='/about' >About</SidebarLink>
                 </SidebarMenu>
                 <SideBtnWrap>
-                    <SidebarRoute to='/signin'>Sign In</SidebarRoute>
+                    <BasicModal></BasicModal>
                 </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>

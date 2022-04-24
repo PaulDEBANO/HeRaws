@@ -65,12 +65,12 @@ const Home = () => {
             </div>
             <div className="relative mt-52 z-0">
                 <div className="absolute bottom-0 left-0 z-10">
-                    <svg width="566" height="671" viewBox="0 0 566 671" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="316" height="375" viewBox="0 0 566 671" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M-13.1788 670.687V0.0175781C100.399 43.0717 150.001 81.6716 157.573 193.987C163.313 279.122 147.989 358.082 208.82 414.622C269.65 471.161 388.273 445.043 422.346 469.378C456.419 493.713 535.318 508.541 550.462 574.059C562.577 626.472 568.932 659.455 563.884 670.687H-13.1788Z" fill="#1B607A"/>
                     </svg>
                 </div>
                 <div className='absolute bottom-0 left-0 z-0'>
-                    <svg width="693" height="846" viewBox="0 0 693 846" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="443" height="541" viewBox="0 0 693 846" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.187378 845.502V0.533203C144.216 55.7442 194.626 144.562 204.228 288.591C213.83 432.619 242.636 430.219 266.641 459.025C290.645 487.83 528.293 545.442 571.501 576.648C614.71 607.854 665.12 634.26 684.324 718.276C699.687 785.49 690.725 831.099 684.324 845.502H0.187378Z" fill="#FFC901"/>
                     </svg>
                 </div>

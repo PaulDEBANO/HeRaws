@@ -55,7 +55,10 @@ const Home = () => {
                     <div>
                         <h1 Style='font-size: 36px;'>Our simulator</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec elit convallis, aliquet lectus vehicula, tempus mi. Proin bibendum magna nisi, a efficitur nulla efficitur vel. Nullam bibendum sollicitudin efficitur. Morbi ullamcorper rhoncus tincidunt. Donec consectetur arcu eros, id maximus quam ultricies non. Cras ac magna id sapien viverra commodo quis quis urna. Cras et odio nec sem dapibus ornare. Morbi hendrerit nisl libero, eget lacinia mi aliquet ut.
+                            Discover our simulator to simulate the ecological impact of several electric batteries.
+                        </p>
+                        <p>
+                            Test the most common NMC, LFP and NCA batteries or create your own batteries with the materials available and have fun changing the parameters to see the differences.
                         </p>
                         <div className='mt-10 flex justify-center'>
                             <BtnLink to='/simulator'>GO</BtnLink>

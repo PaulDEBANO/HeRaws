@@ -55,10 +55,7 @@ const Home = () => {
                     <div>
                         <h1 Style='font-size: 36px;'>Our simulator</h1>
                         <p>
-                            Discover our simulator to simulate the ecological impact of several electric batteries.
-                        </p>
-                        <p>
-                            Test the most common NMC, LFP and NCA batteries or create your own batteries with the materials available and have fun changing the parameters to see the differences.
+                            HeRaws is a simulator create in coworking with students and researchers to allow everyone  to learn about the impacts of materials within electric batteries. To try it, click on “Simulator”, compose your battery on the left panel, validate and discover the impact of this on the ecology and geopolitical context...
                         </p>
                         <div className='mt-10 flex justify-center'>
                             <BtnLink to='/simulator'>GO</BtnLink>

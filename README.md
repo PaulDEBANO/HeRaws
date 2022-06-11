@@ -1,88 +1,31 @@
 # HeRaws
 ## 🧑‍💻 Who are we ?
-We are three students from IDMC locate in Nancy, France : Amélie, Paul and Loélia. We are in charge of designing and developping HeRaws.
-We are working in cooperation with students and reseachers from Ecole des Mines also locate in Nancy. 
+A team of three students, Amélie JACOB–GUIZON, Paul DEBANO and Loélia PINT in Master on Cognitive Science in Nancy (France) at the IDMC (Institut des Sciences du digital et du management). 
+
+In coworking with students and researchers from Ecole des Mines and Institut Jean Lamour in Nancy (France). 
 
 ## 💻 What is HeRaws ? 
-HeRaws will be a website for simulate batteries in order to know their ecological and geopolitical impacts. 
-Main features : simulate between 1 and 10 batteries, access to an interface design for experts, consult dabases about batteries and their impacts.
+HeRaws is our tutored project from a request to create an open and user-friendly interface to choose the materials for green and digital transitions.
+
+HeRaws will be a website to simulate batteries in order to know their ecological and geopolitical impacts. Main features : simulate between 1 and 10 batteries, access to an interface design for experts, consult dabases about batteries and their impacts.
 
 ## #️⃣ Technical informations about HeRaws
-HeRaws is currently in devlopment. 
-We are using HTML, CSS, JavaScript, PHP. 
-For the graphics, we are using the framework D3.js.
+Heraws is developed with React.js, a library that mainly uses JavaScript. This library saves time and facilitates development by providing developers with many pre-existing tools.
+
+<a href="https://fr.reactjs.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="React" width="150"/></a> <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" alt="Javascript" width="150"/></a>
+
+For the layout, we decided to use Tailwind, a library that facilitates css layout.
+
+<a href="https://tailwindcss.com/"><img src="https://laravelnews.imgix.net/images/tailwindcss-1633184775.jpg?ixlib=php-3.3.1" alt="Tailwind" width="200"/></a>
+
+For the simulator charts, we use the Chart.js and D3.js frameworks which allow us to build charts easily.
+
+<a href="https://www.chartjs.org/"><img src="http://www.chartjs.org/img/chartjs-logo.svg" alt="Chart.js" width="150"/></a> <a href="https://d3js.org/"><img src="https://www.ambient-it.net/wp-content/uploads/2019/06/D3js-Logo-200x175.png" alt="D3.js" width="150"/></a>
 
 ## ❇️ Thanks
-We want to thank all of the people who are involve in this project.
+We want to thank all the people who are involved in this project. 
+- Project tutor : Alexandre NOMINE and Armelle BRUN
+- Students from Ecole des Mines : Pauline RICHEVILLAIN, Anita GACON and Elena DORADO BUGALLO
 
+<a href="https://www.univ-lorraine.fr/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1200px-Logo_Universit%C3%A9_de_Lorraine.svg.png" alt="Université de Lorraine" width="200"/></a> <a href="https://idmc.univ-lorraine.fr/"><img src="https://formations.univ-lorraine.fr/img/su/34.jpg" alt="IDMC" width="200"/></a> <a href="https://mines-nancy.univ-lorraine.fr/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Logo_Mines_Nancy.svg/1200px-Logo_Mines_Nancy.svg.png" alt="Ecole des Mines Nancy" width="200"/></a> <a href="https://ijl.univ-lorraine.fr/"><img src="https://photonis.univ-lorraine.fr/files/2019/06/IJL.jpg" alt="IJL" width="200"/></a>
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

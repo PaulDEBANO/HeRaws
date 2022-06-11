@@ -42,7 +42,7 @@ const Home = () => {
                 <div className='container p-6'>
                     <h1 Style='font-size: 36px;'>We can be HERAWS !</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec elit convallis, aliquet lectus vehicula, tempus mi. Proin bibendum magna nisi, a efficitur nulla efficitur vel. Nullam bibendum sollicitudin efficitur. Morbi ullamcorper rhoncus tincidunt. Donec consectetur arcu eros, id maximus quam ultricies non. Cras ac magna id sapien viverra commodo quis quis urna. Cras et odio nec sem dapibus ornare. Morbi hendrerit nisl libero, eget lacinia mi aliquet ut.
+                        HERawS (Highlights on Europe Raw materials Sustainability) project aims to decipher the question of raw materials sustainability for the actors of the green and digital transitions. We develop Decision-Making support tools to assess the sustainability of devices for different audiences (researchers, policymakers, journal editors). The launching of the first online platform is expected within the year. 
                     </p>
                     <Link Style='color:#096F7D;' to='/about'> Read More</Link>
                 </div>

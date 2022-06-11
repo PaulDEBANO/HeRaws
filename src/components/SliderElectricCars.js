@@ -14,7 +14,7 @@ const Input = styled(MuiInput)`
 `;
 
 export default function InputSlider() {
-  const [value, setValue] = React.useState(50); //Default value is set to 50
+  const [value, setValue] = React.useState(40); //Default value is set to 50
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);

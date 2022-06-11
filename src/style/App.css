@@ -36,29 +36,133 @@
 *
 * SIMULATOR
 * All the page
-*
+* grid grid-cols-2 m-5 gap-1
 */
+.page-structure {
+    display: grid;
+    grid-template-columns: 30% 69%;
+    margin: 5px;
+    gap: 10px;
+}
 
+/*
+* SIMULATOR
+* Title of the page
+* col-span-2 text-center
+*/
+.page-title {
+    grid-column: span 2 / span 2;
+    text-align: center;
+}
 
 /*
 *
 * SIMULATOR
-* Selection of elements (checkbox)
-*
+* Form
+* w-3/5 col-span-1 content-start gap-5 mt-10
 */
+.simulator-form {
+    grid-column: span 1;
+    align-content: flex-start;
+    gap: 5px;
+    margin: 10px;
+}
 
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.checkbox-container .checkbox-label {
+    display: block;
+    position: relative;
+    width: 100px;
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid #1A5F7A;
+    color: #1A5F7A;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+}
+.checkbox-label:hover {
+    color: #1A5F7A;
+    background-color: #FFC900;
+}
+.checkboxElt:checked {
+    background-color: #1A5F7A;
+}
+.checkbox-container .checkbox-label .checkboxElt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+}
 
 /*
-*
-* SIMULATOR
-* Inputs for caracteristics
-*
+* Dropdown more options
 */
-
+.more-options-button {
+    cursor:pointer;
+    text-decoration: underline;
+}
+.more-options {
+    display: none;
+}
 
 /*
 * 
 * SIMULATOR
 * Space for graphics
-* 
+* gap-3 col-start-2 row-start-2 row-span-2 col-span-1 grid grid-rows-2 grid-cols-2 mt-10
 */
+.simulator-graphics {
+    gap: 3px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row: span 2;
+    grid-column: span 1;
+
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    margin: 10px;
+}
+
+/*
+* 
+* SIMULATOR
+* Graphic : world-production
+* row-start-1 col-span-2 p-2
+*/
+.world-production {
+    grid-row-start: 1;
+    grid-column: span 2;
+    padding: 2px;
+}
+
+/*
+* 
+* SIMULATOR
+* Graphic : geopolitical risk
+* row-start-2 col-start-1 p-2
+*/
+.geopolitical-risk {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    padding: 2px;
+}
+
+/*
+* 
+* SIMULATOR
+* Graphic : CO2 footprint
+* row-start-2 col-start-2 p-2
+*/
+.co2-footprint {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    padding: 2px;
+}

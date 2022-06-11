@@ -33,9 +33,9 @@ export default function InputSlider() {
   };
 
   return (
-    <Box sx={{ width: 250 }}>
+    <Box>
       <Typography id="input-slider" gutterBottom>
-        Pourcentage of electric cars in 2030 :
+        <label>Pourcentage of electric cars in 2030 :</label>
       </Typography>
       <Grid container spacing={2} alignItems="center">
         <Grid item>

@@ -61,6 +61,7 @@ function BatteryElements() {
     //HTML elements, all elements are contained in a form
     return (
         <form className="p-2" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
+
             {
                 // Electric cars
                 //Slider for the pourcentage of electric cars
@@ -81,125 +82,136 @@ function BatteryElements() {
                     <HelpOutlineIcon color="primary" />
                 </Tooltip>
             </ThemeProvider>
+            <label className="text-left col-span-1">Please select your battery model : </label>
 
-            <label className="text-left col-span-1">Please select the composition from your battery : </label>
 
-            <div className="checkbox-premake-battery">
-                <div className="checkbox-container">
-                    <label className="checkbox-label">
-                        NMC
-                        <input type="checkbox" className="checkboxElt" />
-                    </label>
-                    <label className="checkbox-label">
-                        LFP
-                        <input type="checkbox" className="checkboxElt" />
-                    </label>
-                    <label className="checkbox-label">
-                        NCA
-                        <input type="checkbox" className="checkboxElt" />
-                    </label>
-                </div>
-                <button className="more-options-button">
-                    <span>More options...</span>
-                </button>
+            <div className="checkbox-container">
+                <label className="checkbox-label">
+                    NMC
+                    <input type="checkbox" className="checkboxElt" />
+                </label>
+                <label className="checkbox-label">
+                    LFP
+                    <input type="checkbox" className="checkboxElt" />
+                </label>
+                <label className="checkbox-label">
+                    NCA
+                    <input type="checkbox" className="checkboxElt" />
+                </label>
             </div>
 
-            <div className="more-options">
-                <div >
-                    <div className="grid grid-cols-3 m-2 gap-1" >
-                        <ThemeProvider theme={theme_elt_selector}>
-                            { //Creation of all the checkbox for selecting the elements of the battery
-                                elems.map((el) => {
-                                    return (
-                                        <div key={el} className="checkbox-container">
-                                            <label htmlFor={el} className="checkbox-label">
-                                                {el}
-                                                <input type="checkbox" className="checkboxElt" name={el} id={el} onChange={handleCheck} />
-                                            </label>
-                                        </div>
-                                    );
-                                })
-                            }
-                        </ThemeProvider>
-                    </div>
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                >
+                    <button className="more-options-button">
+                        <span>More options...</span>
+                    </button>
+                </AccordionSummary>
 
-                    {
-                        // Inputs for concentration of elements
-                        //Creation of the input for a selected elements
-                    }
-                    <div className='my-5'>
-                        {
-                            //Aide contextuelle avec icone
-                        }
-                        <ThemeProvider theme={theme_elt_selector}>
-                            <Tooltip
-                                className="m-1"
-                                title="For a good simulation, we need to know the concentration of each elements."
-                                placement="right-start"
-                                arrow>
-                                <HelpOutlineIcon color="primary" />
-                            </Tooltip>
-                        </ThemeProvider>
-                        <label className='text-left col-span-1'>Fill in the precise composition of your battery : </label>
-                        <ThemeProvider theme={theme_elt_selector}>
+                <AccordionDetails>
+                    <div className="more-options">
+                        <div >
+                            <p>Select the exact composition of your battery :</p>
+                            <div className="grid grid-cols-3 m-2 gap-1" >
+                                <ThemeProvider theme={theme_elt_selector}>
+                                    { //Creation of all the checkbox for selecting the elements of the battery
+                                        elems.map((el) => {
+                                            return (
+                                                <div key={el} className="checkbox-container">
+                                                    <label htmlFor={el} className="checkbox-label">
+                                                        {el}
+                                                        <input type="checkbox" className="checkboxElt" name={el} id={el} onChange={handleCheck} />
+                                                    </label>
+                                                </div>
+                                            );
+                                        })
+                                    }
+                                </ThemeProvider>
+                            </div>
+
                             {
-                                [...checked].map((el) => (
-                                    <div className='my-3'>
-                                        <TextField
-                                            type="number"
-                                            step="1"
-                                            max="100"
-                                            min="0"
-                                            label={el}
-                                            id="outlined-start-adornment"
-                                            InputProps={{
-                                                endAdornment: <InputAdornment position="end">%</InputAdornment>,
-                                            }}
-                                        />
-                                    </div>
-                                ))
+                                // Inputs for concentration of elements
+                                //Creation of the input for a selected elements
                             }
-                        </ThemeProvider>
+                            <div className='my-5'>
+                                {
+                                    //Aide contextuelle avec icone
+                                }
+                                <ThemeProvider theme={theme_elt_selector}>
+                                    <Tooltip
+                                        className="m-1"
+                                        title="For a good simulation, we need to know the concentration of each elements."
+                                        placement="right-start"
+                                        arrow>
+                                        <HelpOutlineIcon color="primary" />
+                                    </Tooltip>
+                                </ThemeProvider>
+                                <label className='text-left col-span-1'>Fill in the precise composition of your battery : </label>
+                                <ThemeProvider theme={theme_elt_selector}>
+                                    {
+                                        [...checked].map((el) => (
+                                            <div className='my-3'>
+                                                <TextField
+                                                    type="number"
+                                                    step="1"
+                                                    max="100"
+                                                    min="0"
+                                                    label={el}
+                                                    id="outlined-start-adornment"
+                                                    InputProps={{
+                                                        endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                                                    }}
+                                                />
+                                            </div>
+                                        ))
+                                    }
+                                </ThemeProvider>
+                            </div>
+                        </div>
+
+                        {
+                            //---Inputs for caracteristics---
+                            // 5 rows : title, battery perf. and tension
+                        }
+                        <div className="col-span-1 row-start-3 grid grid-rows-3 space-y-2.5 > * + *">
+                            {
+                                // Battery perf. and Tension 
+                                //Inputs for fill in the battery performance and the tension
+                            }
+                            <label >Fill the battery performance and the tension :</label>
+                            <Tooltip title="Please enter your battery performance" placement="right-start" arrow>
+                                <TextField
+                                    className="row-start-2"
+                                    type="number"
+                                    step="0.1"
+                                    label="Battery performance"
+                                    id="outlined-start-adornment"
+                                    InputProps={{
+                                        endAdornment: <InputAdornment position="end">mAh/g</InputAdornment>,
+                                    }}
+                                />
+                            </Tooltip>
+                            <Tooltip title="Please enter the tension of your battery" placement="right-start" arrow>
+                                <TextField
+                                    className="row-start-3"
+                                    type="number"
+                                    step="0.1"
+                                    label="Tension"
+                                    id="outlined-start-adornment"
+                                    InputProps={{
+                                        endAdornment: <InputAdornment position="end">V</InputAdornment>,
+                                    }}
+                                />
+                            </Tooltip>
+
+                        </div>
                     </div>
-                </div>
 
-                {
-                    //---Inputs for caracteristics---
-                    // 5 rows : title, battery perf., tension, slider for cars and button
-                }
-                <div className="col-span-1 row-start-3 grid grid-rows-5">
-                    {
-                        // Battery perf. and Tension 
-                        //Inputs for fill in the battery performance and the tension
-                    }
-                    <label >Fill the battery performance and the tension :</label>
-                    <Tooltip title="Please enter your battery performance" placement="right-start" arrow>
-                        <TextField
-                            className="row-start-2"
-                            type="number"
-                            step="0.1"
-                            label="Battery performance"
-                            id="outlined-start-adornment"
-                            InputProps={{
-                                endAdornment: <InputAdornment position="end">mAh/g</InputAdornment>,
-                            }}
-                        />
-                    </Tooltip>
-                    <Tooltip title="Please enter the tension of your battery" placement="right-start" arrow>
-                        <TextField
-                            className="row-start-3"
-                            type="number"
-                            step="0.1"
-                            label="Tension"
-                            id="outlined-start-adornment"
-                            InputProps={{
-                                endAdornment: <InputAdornment position="end">V</InputAdornment>,
-                            }}
-                        />
-                    </Tooltip>
-
-                </div>
-            </div>
+                </AccordionDetails>
+            </Accordion>
             {
                 // Button Simulate
             }

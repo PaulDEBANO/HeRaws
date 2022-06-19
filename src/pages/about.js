@@ -1,4 +1,5 @@
 import React from 'react';
+import '../style/App.css';
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import logo_IDMC from "../assets/logo_IDMC.png";
@@ -16,25 +17,56 @@ const About = () => {
                 </div>
                 <div class='container pt-12'>
                     <h1 Style="font-size: 36px; font-weight: bold;">Who are we?</h1>
-                    <p>Donec tristique ex id libero scelerisque, vitae mollis risus sollicitudin. Aliquam ut magna ligula. Suspendisse libero diam, vehicula eget tellus ut, lacinia luctus dolor. Fusce tristique blandit egestas. Fusce vel auctor magna. Nulla tempor, enim vitae ullamcorper tempus, leo ex vulputate nunc, id pretium est sapien id turpis. Aliquam erat volutpat. Aenean non quam interdum, faucibus ipsum maximus, pharetra metus. Vestibulum leo urna, aliquet vitae dolor vitae, eleifend malesuada mi. Ut ultrices a mauris id vestibulum. Donec mollis, ante in pellentesque faucibus, sapien nibh cursus ex, at varius purus dolor id orci. Cras ac ex leo. Proin pellentesque viverra orci consequat iaculis. Donec blandit dui vitae tortor fermentum, in dignissim arcu cursus.</p>
+                    <h2 Style="font-size: 28px; font-weight: bold;">Developers</h2>
+                    <p>All developers are currently completing a master degree in cognitive science at the University of Lorraine in the IDMC component.
+                    </p>
+                    <ul>
+                        <li>- Paul DEBANO : UX/UI designer, developer</li>
+                        <li>- Amélie JACOB--GUIZON : UX/UI designer, project manager</li>
+                        <li>- Loélia PINT : UX/UI designer, developer</li>
+                    </ul>
+
+                    <h2 Style="font-size: 28px; font-weight: bold;">Professors and researchers</h2>
+                    <p></p>
+                    <ul>
+                        <li>- Armelle BRUN : associate professor at IDMC and head of the BIRD research team at LORIA lab.</li>
+                        <li>- Alexandre NOMINE : lecturer at Mines Nancy and researcher at the Institut Jean Lamour.</li>
+                    </ul>
+
+                    <h2 Style="font-size: 28px; font-weight: bold;">Students from Mines Nancy</h2>
+                    <p></p>
+                    <ul>
+                        <li>- Pauline RICHEVILLAIN</li>
+                        <li>- Anita GACON</li>
+                        <li>- Elena DORADO BUGALLO</li>
+                    </ul>
+
                 </div>
                 <div class='container pt-12'>
                     <h1 Style="font-size: 36px; font-weight: bold;">Thanks</h1>
-                    <p>Etiam aliquet fringilla ex, a vulputate libero sodales sed. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur accumsan consequat eros vel semper. Aenean venenatis vestibulum justo eget aliquet. Integer egestas vulputate ex vitae congue. Duis egestas vel ante varius consectetur. Nam ullamcorper metus ligula. Ut eu magna elit. Maecenas eleifend mauris et lectus ullamcorper, eu tincidunt est fermentum. Duis vel lacus lorem. Fusce scelerisque vel lectus ut euismod. Cras pretium quis ante id fringilla. Phasellus vitae efficitur ex, ut rhoncus risus.</p>
+                    <p>
+                        We want to give a special thanks to all laboratories and universities involved in this project :
+                    </p>
+                    <ul>
+                        <li>- Université de Lorraine</li>
+                        <li>- IDMC : were developpers of the website are</li>
+                        <li>- Mines Nancy : were researchers in materials are</li>
+                        <li>- Institut Jean Lamour</li>
+                    </ul>
 
                     <Box class="pt-12" sx={{ flexGrow: 1 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={3}>
-                                <a href="https://www.univ-lorraine.fr/" target="_blank"><img src={logo_UL}/></a>
+                                <a href="https://www.univ-lorraine.fr/" target="_blank"><img src={logo_UL} /></a>
                             </Grid>
                             <Grid item xs={3}>
-                                <a href="https://idmc.univ-lorraine.fr/" target="_blank"><img src={logo_IDMC}/></a>
+                                <a href="https://idmc.univ-lorraine.fr/" target="_blank"><img src={logo_IDMC} /></a>
                             </Grid>
                             <Grid item xs={3}>
-                                <a href="https://mines-nancy.univ-lorraine.fr/" target="_blank"><img src={logo_Mines}/></a>
+                                <a href="https://mines-nancy.univ-lorraine.fr/" target="_blank"><img src={logo_Mines} /></a>
                             </Grid>
                             <Grid item xs={3}>
-                                <a href="https://ijl.univ-lorraine.fr/" target="_blank"><img src={logo_IJL}/></a>
+                                <a href="https://ijl.univ-lorraine.fr/" target="_blank"><img src={logo_IJL} /></a>
                             </Grid>
                         </Grid>
                     </Box>

@@ -5,15 +5,51 @@ import '../style/App.css';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 //For creating contextual help
-import { Tooltip } from "@mui/material";
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-
+//Icon of electric car
+import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 //Calling the components for all the left side elements
 import CompositionOfElements from '../components/CompositionOfElements';
 import ActualDate from '../components/ActualDate.js';
 
 //import Rock svg
 import rockSVG from '../components/rock-svgrepo-com.svg';
+
+//For charts
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+//Random number to generate a first Pie Chart
+const number1 = Math.floor(Math.random() * 100) + 1;
+const number2 = Math.floor(Math.random() * 100) + 1;
+const number3 = Math.floor(Math.random() * 100) + 1;
+//Data for the Pie Chart
+let dataForDatasets = [number1, number2, number3];
+let labelsForData = ['Material 1', 'Material 2', 'Material 3'];
+const data = {
+    labels: labelsForData,
+    datasets: [
+        {
+            label: 'CO2 Footprint',
+            data: dataForDatasets,
+            backgroundColor: [
+                'rgba(255, 248, 154, 0.7)',
+                'rgba(255, 201, 1, 0.7)',
+                'rgba(9, 111, 125, 0.7)',
+                'rgba(63, 91, 101, 0.7)'
+            ],
+            borderColor: [
+                'rgba(235, 227, 118, 1)',
+                'rgba(224, 177, 2, 1)',
+                'rgba(9, 97, 110, 1)',
+                'rgba(47, 68, 76, 1)'
+            ],
+            borderWidth: 1,
+        },
+    ],
+};
 
 //Palete color
 const theme_button = createTheme({
@@ -32,6 +68,83 @@ const theme_button = createTheme({
         },
     },
 });
+
+/*
+* Function to get all the selected elements from the URL
+*/
+function getTheElement() {
+    //Save the URL (because there is all the selected element in it)
+    var urlcourante = document.location.href;
+    //Save the element
+    var queue_url = urlcourante.substring(urlcourante.lastIndexOf("?") + 1);
+    //The list for all the elements
+    let selectedElements = [];
+    //Go through the end of the url to save each element
+    while (queue_url.length !== 0) {
+        let indexOfElt = queue_url.indexOf("="); //Search the position of the "=", wich is the end
+        if (selectedElements.length === 0) {
+            selectedElements.push(queue_url.slice(0, indexOfElt)); //Save an elt into the array
+        }
+        
+        else {
+            let indexOfBegin = queue_url.indexOf("&"); //Search the position of the "&", whic is the begin
+            selectedElements.push(queue_url.slice(indexOfBegin + 1, indexOfElt)); //Save an elt into the array
+        }
+        
+        //Supprimer tout jusqu'au prochain "&" ou tout supprimer (car c'est le dernier elt)
+        if (selectedElements.length == 1) {
+            //Supprimer 5 caractères
+            queue_url = queue_url.slice(4, queue_url.length);
+        }
+        else {
+            //Supprimer 6 caractères
+            queue_url = queue_url.slice(6, queue_url.length);
+        }
+
+    }
+
+    //Specify elements for battery model
+    if (selectedElements.includes("NMC")){
+        selectedElements = ["Ni", "Mn", "Co"]; //Add each elements to selectedElements
+    }
+    else if (selectedElements.includes("LFP")){
+        selectedElements = ["Li", "Fe", "P", "O"]; //Add each elements to selectedElements
+    }
+    else if (selectedElements.includes("NCA")){
+        selectedElements = ["Ni", "Co", "Al"]; //Add each elements to selectedElements
+    }
+
+    return (selectedElements);
+};
+
+/*
+* Function to generate the pieChart graphic
+*/
+export function genPieChart() {
+    const pieGraph = document.querySelector('#pie-chart'); //Get the div for pieChart
+    var urlcourante = document.location.href; //Get the current URL
+    //If : avoids running the instructions before the click on "simulate" (=submit the form) 
+    if (urlcourante.includes("=")) {
+        let selectedElement = getTheElement(); //Get all selected elements
+
+        //Cleanning (delete empty value)
+        function deleteEmptyData(element) {
+            return element !== "";
+        }
+        selectedElement = selectedElement.filter(deleteEmptyData);
+
+        //Delete the current elements in the PieChart
+        dataForDatasets.splice(0, dataForDatasets.length);
+        labelsForData.splice(0, labelsForData.length);
+        //Add nex element to the PieChart
+        for (var i = 0; i < selectedElement.length; i++) {
+            labelsForData.push(selectedElement[i]); 
+            dataForDatasets.push(Math.floor(Math.random() * 100) + 1);
+        }
+        
+    }
+}
+
 
 //Structure of the simulator page
 const Simulator = () => {
@@ -74,14 +187,11 @@ const Simulator = () => {
                         <div id="actual-date">
                             <ActualDate />
                         </div>
+                        <p>Quantity of mineral known and economicaly explotable</p>
                         <div className="rocks">
                             {
                                 //Affichage des cailloux
-                                /*
-                            <iframe src="../components/rock-svgrepo-com.svg" width="500" height="500" sandbox>
-                                <img src="../components/rock-svgrepo-com.svg" alt="Un triangle avec trois côtés inégaux" />
-                            </iframe>
-                            */
+
                             }
                         </div>
                     </div>
@@ -97,12 +207,17 @@ const Simulator = () => {
 
                 </div>
                 <div className="co2-footprint" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
-                    <h3 className="text-left">CO2 Footprint</h3>
+                    <h3 className="text-left">CO2 Footprint (%)</h3>
+                    <div id="spaceForPieChart">
+                        <Pie data={data} className="graph" id="pie-chart" />
+                    </div>
+                    <div id="CO2carEquivalent">
+                        <p>Number of equivalent kilometers in electric cars</p>
+                        <ElectricCarIcon />
+                    </div>
 
                 </div>
             </div>
-
-
         </div>
     );
 };

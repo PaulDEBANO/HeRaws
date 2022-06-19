@@ -7,6 +7,9 @@
     padding: 0;
 }
 
+.material-icons {
+    font-size: 45px;  /* Preferred icon size */
+}
 
 /*
 *
@@ -61,6 +64,11 @@
 * Form
 * w-3/5 col-span-1 content-start gap-5 mt-10
 */
+.special-background-color {
+    background-color: #1A5F7A;
+    font-weight: bolder;
+}
+
 .simulator-form {
     grid-column: span 1;
     align-content: flex-start;
@@ -75,6 +83,7 @@
     margin: 2px;
     align-items: center;
 }
+
 .checkbox-container .checkbox-label {
     display: block;
     position: relative;
@@ -87,19 +96,49 @@
     text-align: center;
     align-items: center;
 }
+
 .checkbox-label:hover {
     color: #1A5F7A;
     background-color: #FFC900;
 }
-.checkboxElt:checked {
-    background-color: #1A5F7A;
+
+/*Change the style of the background while an element is checked*/
+/* NE FONCTIONNE PAS */
+.checkbox-container~input:checked {
+    background-color: red;
+    font-weight: bold;
+    color: yellow;
 }
+
 .checkbox-container .checkbox-label .checkboxElt {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
     opacity: 0;
+}
+
+/*
+*
+* SIMULATOR
+* Dropdown More options
+*/
+.more-options-button {
+    font-style: italic;
+    font-size: 12px;
+    color: #1A5F7A;
+}
+
+/*
+*
+* SIMULATOR
+* Message for the fill in composition place
+*/
+#composition-message {
+    visibility: visible;
+    font-style: italic;
+    font-size: 12px;
+    color: 1A5F7A;
 }
 
 /*
@@ -156,4 +195,43 @@
     grid-row-start: 2;
     grid-column-start: 2;
     padding: 2px;
+
+    display: grid;
+}
+.co2-footprint > h3 {
+    grid-row: span 1;
+    grid-column: span 2;
+    height : 50%;
+}
+
+#pie-chart {
+    visibility: visible;
+}
+
+#spaceForPieChart {
+    grid-row: span 1;
+    grid-column: span 1;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    width : 100%;
+}
+
+#CO2carEquivalent {
+    grid-row: span 1;
+    grid-column: span 1;
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+
+
+/*
+* For add the visibility attribute 
+* Pour rendre visible un objet
+*/
+.show {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
 }

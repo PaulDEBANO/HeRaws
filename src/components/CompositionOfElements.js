@@ -10,13 +10,15 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SliderElectricCars from '../components/SliderElectricCars';
 import { Tooltip } from "@mui/material";
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+//Other file import
+import {genPieChart} from "../pages/simulator";
 //Dropdown import
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import '../style/App.css'; 
 
 //Color palette for the elements on the left side
 const theme_elt_selector = createTheme({
@@ -39,28 +41,57 @@ const theme_elt_selector = createTheme({
 
 
 //Gobal variable : array of all the elements of a battery
-let allElements = ["Ni", "Co", "Al", "Mn", "Fe", "P", "Li", "S", "F", "V", "Ti", "O"]
-//Global variable : empty array for storage of all the element of the battery
-let listOfElement = [];
+let allElements = ["Ni", "Co", "Al", "Mn", "Fe", "P", "Li", "S", "F", "V", "Ti", "O"];
 
+//Handle the submit
+function handleSubmit() {
+    genPieChart();
+};
+
+//Function for display a warning message for inputs concentration --> NE FONCTIONNE PAS
+function displayMessage(checked) {
+    //Display a message
+    if (checked.length == 0) {
+        const paragraph = document.getElementById('composition-message');
+        paragraph.classList.add('show');
+        paragraph.classList.remove('hidden');
+    }
+    else {
+        const paragraph = document.querySelector('#composition-message');
+        paragraph.classList.remove('show');
+        paragraph.classList.add('hidden');
+    }
+}
 
 //Function for all the elements of the left side of the simulator
 function BatteryElements() {
-    //Code for handle the check of th checkbox for selesting the elements of the battery
-    let elems = allElements; //all the checkboxex
+    //Code for handle the check of th checkbox for selecting the elements of the battery
+    let elems = allElements; //all the checkboxes
     let [checked, setChecked] = useState([]);
+    //When a single element is (un)checked
     const handleCheck = (el) => {
+        //Add or delete the element from the selected elt array 
+        // --> J'ESSAIE DE FAIRE LES CHANGEMENTS DE COULEURS 
         if (el.target.checked) {
+            //Add the element
             setChecked((old) => [...old, el.target.id]);
+            //Change the style
+            /*
+            * el.value ==> undefined
+            * el.target.value ==> on 
+            */
+            //el.target.style.backgroundColor = "red"; 
+            //el.target.classList.add('special-background-color');
         } else {
+            //Delete the element
             setChecked((old) => old.filter((x) => x !== el.target.id));
         }
-        console.log(checked);
     };
 
     //HTML elements, all elements are contained in a form
+   
     return (
-        <form className="p-2" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
+        <form className="p-2" onSubmit={handleSubmit()} Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
 
             {
                 // Electric cars
@@ -88,15 +119,15 @@ function BatteryElements() {
             <div className="checkbox-container">
                 <label className="checkbox-label">
                     NMC
-                    <input type="checkbox" className="checkboxElt" />
-                </label>
+                    <input type="checkbox" className="checkboxElt" name="NMC" id="NMC" />
+                </label> 
                 <label className="checkbox-label">
                     LFP
-                    <input type="checkbox" className="checkboxElt" />
+                    <input type="checkbox" className="checkboxElt" name="LFP" id="LFP" />
                 </label>
                 <label className="checkbox-label">
                     NCA
-                    <input type="checkbox" className="checkboxElt" />
+                    <input type="checkbox" className="checkboxElt" name="NCA" id="NCA" />
                 </label>
             </div>
 
@@ -123,7 +154,17 @@ function BatteryElements() {
                                                 <div key={el} className="checkbox-container">
                                                     <label htmlFor={el} className="checkbox-label">
                                                         {el}
-                                                        <input type="checkbox" className="checkboxElt" name={el} id={el} onChange={handleCheck} />
+                                                        <input type="checkbox" className="checkboxElt" name={el} id={el} onChange={handleCheck} onClick={(el) => {
+                                                            //Change the color of the background ==> NE FONCTIONNE PAS
+                                                            /*
+                                                            if (document.getElementById(el).checked == true) {
+                                                                document.getElementById(el).style.backgroundColor = "red"; 
+                                                            }
+                                                            else {
+                                                                document.getElementById(el).style.backgroundColor = "yellow"; 
+                                                            }
+                                                            */
+                                                        }}/>
                                                     </label>
                                                 </div>
                                             );
@@ -150,6 +191,7 @@ function BatteryElements() {
                                     </Tooltip>
                                 </ThemeProvider>
                                 <label className='text-left col-span-1'>Fill in the precise composition of your battery : </label>
+                                <p id="composition-message">You need to select at least one element to precise its composition.</p>
                                 <ThemeProvider theme={theme_elt_selector}>
                                     {
                                         [...checked].map((el) => (

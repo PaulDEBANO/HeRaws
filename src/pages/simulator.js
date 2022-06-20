@@ -6,14 +6,16 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 //For creating contextual help
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-//Icon of electric car
+//Icons and images
 import ElectricCarIcon from '@mui/icons-material/ElectricCar';
+import Earth from '@mui/icons-material/Public';
+import TrackChanges from '@mui/icons-material/TrackChanges';
+import rockSVG from '../components/rock-svgrepo-com.svg'; //Rock SVG
+import mapGisement from '../components/map-gisement.jpeg';
 //Calling the components for all the left side elements
 import CompositionOfElements from '../components/CompositionOfElements';
 import ActualDate from '../components/ActualDate.js';
 
-//import Rock svg
-import rockSVG from '../components/rock-svgrepo-com.svg';
 
 //For charts
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -21,6 +23,9 @@ import { Pie } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+
+//Representative distance with a diesel vehicle
+let carEquivalent = (Math.floor(Math.random() * 100) + 1) * 100;
 //Random number to generate a first Pie Chart
 const number1 = Math.floor(Math.random() * 100) + 1;
 const number2 = Math.floor(Math.random() * 100) + 1;
@@ -50,6 +55,33 @@ const data = {
         },
     ],
 };
+
+//Function for changing the rocks (World Production)
+function changeRocks (percentage) {
+    //Get all the rocks
+    const rock1 = document.getElementsByClassName('rock-1');
+    console.log(rock1);
+    //Change the rocks according to the percentage
+    if (percentage>=0 && percentage <=10) {
+        //rock1.style.opacity = "0,50";
+    } 
+    else if (percentage>10 && percentage<=20) {
+
+    }
+    else if (percentage>20 && percentage<=30) {
+
+    }
+    else if (percentage>30 && percentage<=30) {
+
+    }
+    else if (percentage>40 && percentage<=50) {
+
+    }
+    else if (percentage>50 && percentage<=60){
+
+    }
+    //A CONTINUER
+}
 
 //Palete color
 const theme_button = createTheme({
@@ -85,12 +117,12 @@ function getTheElement() {
         if (selectedElements.length === 0) {
             selectedElements.push(queue_url.slice(0, indexOfElt)); //Save an elt into the array
         }
-        
+
         else {
             let indexOfBegin = queue_url.indexOf("&"); //Search the position of the "&", whic is the begin
             selectedElements.push(queue_url.slice(indexOfBegin + 1, indexOfElt)); //Save an elt into the array
         }
-        
+
         //Supprimer tout jusqu'au prochain "&" ou tout supprimer (car c'est le dernier elt)
         if (selectedElements.length == 1) {
             //Supprimer 5 caractères
@@ -104,13 +136,13 @@ function getTheElement() {
     }
 
     //Specify elements for battery model
-    if (selectedElements.includes("NMC")){
+    if (selectedElements.includes("NMC")) {
         selectedElements = ["Ni", "Mn", "Co"]; //Add each elements to selectedElements
     }
-    else if (selectedElements.includes("LFP")){
+    else if (selectedElements.includes("LFP")) {
         selectedElements = ["Li", "Fe", "P", "O"]; //Add each elements to selectedElements
     }
-    else if (selectedElements.includes("NCA")){
+    else if (selectedElements.includes("NCA")) {
         selectedElements = ["Ni", "Co", "Al"]; //Add each elements to selectedElements
     }
 
@@ -138,10 +170,10 @@ export function genPieChart() {
         labelsForData.splice(0, labelsForData.length);
         //Add nex element to the PieChart
         for (var i = 0; i < selectedElement.length; i++) {
-            labelsForData.push(selectedElement[i]); 
+            labelsForData.push(selectedElement[i]);
             dataForDatasets.push(Math.floor(Math.random() * 100) + 1);
         }
-        
+
     }
 }
 
@@ -182,17 +214,61 @@ const Simulator = () => {
                     //Tailwind classname : row-start-1 col-span-2 p-2
                 }
                 <div className="world-production" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
-                    <h3 className="text-left">World Production</h3>
+                    <div id="world-production-title">
+                        <h3 className="text-left">World Production</h3>
+                        <p>Quantity of mineral known and economicaly explotable</p>
+                    </div>
                     <div className="actual-ressource">
                         <div id="actual-date">
                             <ActualDate />
                         </div>
-                        <p>Quantity of mineral known and economicaly explotable</p>
                         <div className="rocks">
                             {
                                 //Affichage des cailloux
-
                             }
+                            <img src={rockSVG} alt="a rock" className="rock-1" />
+                            <img src={rockSVG} alt="a rock" className="rock-2" />
+                            <img src={rockSVG} alt="a rock" className="rock-3" />
+                            <img src={rockSVG} alt="a rock" className="rock-4" />
+                            <img src={rockSVG} alt="a rock" className="rock-5" />
+                            <img src={rockSVG} alt="a rock" className="rock-6" />
+                            <img src={rockSVG} alt="a rock" className="rock-7" />
+                            <img src={rockSVG} alt="a rock" className="rock-8" />
+                            <img src={rockSVG} alt="a rock" className="rock-9" />
+                            <img src={rockSVG} alt="a rock" className="rock-10" />
+                            {
+                                changeRocks(5)
+                            }
+                        </div>
+                    </div>
+                    <div className="world-production-arrow">
+                        <p style={{ fontSize: 45 + 'px', margin: 'auto' }}> ➡ </p>
+                    </div>
+                    <div className="future-date">
+                        <p>2050</p>
+                        <div className="rocks">
+                            {
+                                //Affichage des cailloux
+                            }
+                            <img src={rockSVG} alt="a rock" class="rock-1" />
+                            <img src={rockSVG} alt="a rock" class="rock-2" />
+                            <img src={rockSVG} alt="a rock" class="rock-3" />
+                            <img src={rockSVG} alt="a rock" class="rock-4" />
+                            <img src={rockSVG} alt="a rock" class="rock-5" />
+                            <img src={rockSVG} alt="a rock" class="rock-6" />
+                            <img src={rockSVG} alt="a rock" class="rock-7" />
+                            <img src={rockSVG} alt="a rock" class="rock-8" />
+                            <img src={rockSVG} alt="a rock" class="rock-9" />
+                            <img src={rockSVG} alt="a rock" class="rock-10" />
+                            {
+                                changeRocks(24)
+                            }
+                        </div>
+                    </div>
+                    <div className="world-production-exhaustion">
+                        <p><Earth /> Remaining ressources before exhaustion (%)</p>
+                        <div id="exhaustion-calendar">
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -204,7 +280,7 @@ const Simulator = () => {
                 }
                 <div className="geopolitical-risk" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
                     <h3 className="text-left">Geopolitical Risks</h3>
-
+                    <img src={mapGisement} id="map-gisement"/>
                 </div>
                 <div className="co2-footprint" Style='background: #F0F0F0; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); border-radius: 10px;'>
                     <h3 className="text-left">CO2 Footprint (%)</h3>
@@ -212,8 +288,8 @@ const Simulator = () => {
                         <Pie data={data} className="graph" id="pie-chart" />
                     </div>
                     <div id="CO2carEquivalent">
-                        <p>Number of equivalent kilometers in electric cars</p>
-                        <ElectricCarIcon />
+                        <p>Representative distance with a diesel vehicle :</p>
+                        <p><ElectricCarIcon /> {carEquivalent} km</p>
                     </div>
 
                 </div>
